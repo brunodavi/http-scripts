@@ -64,14 +64,40 @@ or
 ### How to Use
 
 ```js
-import httpScript from 'http-script';
+import httpScript from 'http-script'
+import request from "sync-request";
+import fs from 'fs'
 
-// Example function for debugging and testing
 function httpRequest(options) {
-  // Implement your request here
+  const fileToSend =
+    (options.fileToSend)
+      ? fs.readFileSync(options.fileToSend)
+      : undefined
+
+  const response = request(
+    options.method,
+    options.url,
+
+    {
+      headers: options.headers,
+      qs: options.queries,
+      body: options.body || fileToSend
+    }
+  )
+
+  if (options.saveFile != null)
+    fs.writeFileSync(options.saveFile, response.getBody())
+
+  return response
 }
 
-httpScript('g :1234', httpRequest);
+
+const response = httpScript(
+  'g httpbin.org/get',
+  httpRequest
+)
+
+console.log(response)
 ```
 
 ### Script Structure
