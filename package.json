@@ -5,7 +5,8 @@
   "type": "module",
   "main": "httpScript.js",
   "scripts": {
-    "test": "node tests/index.js"
+    "test": "node tests/index.js",
+    "build": "babel httpScript.js --out-file dist/app.js"
   },
   "repository": {
     "type": "git",
