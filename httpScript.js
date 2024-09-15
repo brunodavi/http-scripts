@@ -77,16 +77,16 @@ function addProtocol(url) {
 function parseScript(script) {
   const options = { ...REST_OPTIONS }
 
-  const regex_method = /^([a-zA-Z]+) +(.*?)$/m
+  const regexMethod = /^([a-zA-Z]+) +(.*?)$/m
 
-  if (!regex_method.test(script))
+  if (!regexMethod.test(script))
     throw new Error('Method or URL not found')
 
   const [_, method, url] = (
-    script.match(regex_method)
+    script.match(regexMethod)
   )
 
-  script = script.replace(regex_method, '')
+  script = script.replace(regexMethod, '')
 
   options.method = getMethod(method)
 
@@ -189,7 +189,7 @@ export function parseHttpScript(restScript) {
 
 function evalParsed(parsed) {
   const regex = /(?<!\\)\$([_\w][_\w.]*)\b/g
-  const escape_regex = /\\(\$[_\w][_\w.]*)\b/g
+  const escapeRegex = /\\(\$[_\w][_\w.]*)\b/g
 
   function parseData(_, data) {
     const props = data.split('.')
@@ -221,7 +221,7 @@ function evalParsed(parsed) {
 
       if (type === 'string') {
         obj[key] = value.replace(regex, parseData)
-        obj[key] = obj[key].replace(escape_regex, '$1')
+        obj[key] = obj[key].replace(escapeRegex, '$1')
       }
       else if (type === 'object' && value !== null)
         obj[key] = serializeParsed(value)
