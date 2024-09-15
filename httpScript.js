@@ -4,7 +4,7 @@ const REST_OPTIONS = {
 
   queries: {},
   headers: {},
-  body: {},
+  body: null,
 
   fileToSend: null,
   saveFile: null,
