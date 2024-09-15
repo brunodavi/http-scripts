@@ -1,0 +1,20 @@
+{
+  "name": "http-script",
+  "version": "1.0.0",
+  "description": "Tool to easily create http request scripts",
+  "type": "module",
+  "main": "httpScript.js",
+  "scripts": {
+    "test": "node tests/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunodavi/http-script.git"
+  },
+  "author": "brunodavi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunodavi/http-script/issues"
+  },
+  "homepage": "https://github.com/brunodavi/http-script#readme"
+}
