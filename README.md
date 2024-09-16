@@ -60,7 +60,7 @@ npm install github:brunodavi/http-script
 or
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/brunodavi/http-script@v1.0.0/dist/http-script.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/brunodavi/http-script@v1.0.1/dist/http-script.min.cjs"></script>
 ```
 
 ### How to Use
@@ -162,7 +162,7 @@ p :1234/search
 
 Content-Type: application/json
 Authorization: Bearer token
-User-Agent: HTTP Script/1.0.0
+User-Agent: HTTP Script
 Cache-Control: no-cache
 ```
 
