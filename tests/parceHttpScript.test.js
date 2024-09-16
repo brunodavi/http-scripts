@@ -1,5 +1,5 @@
 import assert from 'node:assert'
-import { parseHttpScript } from '../httpScript.js'
+import { parseHttpScript } from '../src/httpScript.js'
 
 
 function testMethods() {

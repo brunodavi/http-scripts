@@ -1,6 +1,6 @@
 import assert from "node:assert"
 
-import httpScript from "../httpScript.js";
+import httpScript from "../src/httpScript.js";
 
 function testAutoBaseUrl() {
   console.log('Testing Auto Base Url...')
