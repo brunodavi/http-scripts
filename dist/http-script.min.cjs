@@ -1,6 +1,6 @@
 "use strict";
 
-var exports = Object;
+if (exports == null) var exports = {};
 
 Object.defineProperty(exports, "__esModule", {
   value: true

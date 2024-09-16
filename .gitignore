@@ -94,7 +94,7 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist/*
-!dist/http-script.min.js
+!dist/http-script.min.cjs
 
 # Gatsby files
 .cache/
