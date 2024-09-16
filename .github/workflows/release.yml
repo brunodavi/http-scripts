@@ -13,19 +13,6 @@ jobs:
       contents: write
 
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Use Node.js
-      uses: actions/setup-node@v4
-      with:
-        cache: 'npm'
-
-    - run: npm ci
-    - run: npm run build
-
     - name: Release
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: dist/http-script.min.js
-    
