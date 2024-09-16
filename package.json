@@ -6,7 +6,7 @@
   "main": "httpScript.js",
   "scripts": {
     "test": "node tests/index.js",
-    "build": "babel httpScript.js --out-file dist/app.js"
+    "build": "babel httpScript.js --out-file dist/http-script.min.js"
   },
   "repository": {
     "type": "git",
