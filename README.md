@@ -106,7 +106,7 @@ console.log(response)
 
 #### Available Methods
 
-HTTP methods are defined on the first line of the script and can be abbreviated or written in full:
+HTTP methods are defined on the first line of the script and can be abbreviated or written in full, in either uppercase or lowercase:
 
 - `g` or `get`
 - `p` or `post`
@@ -139,7 +139,7 @@ Additional parameters for the request can be specified after the URL or on separ
 ##### Example
 
 ```
-g :1234/search
+Get :1234/search
 
 q=item
 page=2
@@ -148,7 +148,7 @@ page=2
 or
 
 ```
-g :1234/search?q=item&page=2
+get :1234/search?q=item&page=2
 ```
 
 #### Headers
@@ -158,7 +158,7 @@ Headers are specified after the URL, each on a separate line:
 ##### Example
 
 ```
-p :1234/search
+post :1234/search
 
 Content-Type: application/json
 Authorization: Bearer token
@@ -173,7 +173,7 @@ The body of the request is used for methods that accept a body (POST, PUT, PATCH
 ##### Example
 
 ```
-p :1234
+Post :1234
 
 .body
 {
@@ -242,7 +242,7 @@ d :1234
 States are defined in `this.state` and can be used as variables starting with `$`:
 
 ```
-g :1234
+GET :1234
 
 User-Agent: HTTP Script
 
@@ -252,7 +252,7 @@ this.state.userAgent = this.headers['User-Agent'];
 
 ---
 
-p :1234
+POST :1234
 
 User-Agent: $userAgent
 ```
@@ -262,11 +262,11 @@ User-Agent: $userAgent
 The base URL is automatically set if `this.state.baseUrl` is not defined, completing the URL if it starts with `/`:
 
 ```
-g httpbin.org/get
+Get httpbin.org/get
 
 ---
 
-p /post
+Post /post
 
 .js
 this.state.baseUrl = 'reqres.in/api';
@@ -274,5 +274,5 @@ this.state.baseUrl = 'reqres.in/api';
 
 ---
 
-g /users/2
+Get /users/2
 ```
