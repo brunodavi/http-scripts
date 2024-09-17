@@ -6,7 +6,7 @@
   "main": "src/httpScript.js",
   "scripts": {
     "test": "node tests/index.js",
-    "build": "babel src/httpScript.js -o dist/http-script.min.cjs && ./scripts/bundle_fix.sh"
+    "build": "babel src/httpScript.js -o dist/http-script.js && ./scripts/bundle_fix.sh"
   },
   "repository": {
     "type": "git",

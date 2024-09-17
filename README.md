@@ -57,10 +57,10 @@ To install `http-script`, you can use npm or include the script directly in your
 npm install github:brunodavi/http-script
 ```
 
-or
+or use cdn:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/brunodavi/http-script@v1.0.1/dist/http-script.min.cjs"></script>
+https://cdn.jsdelivr.net/gh/brunodavi/http-script@v1.0.1/dist/http-script.min.js
 ```
 
 ### How to Use
