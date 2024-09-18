@@ -83,6 +83,16 @@ function testMethods() {
     parseHttpScript('trace :1234')[0].method,
     'TRACE',
   )
+
+  assert.strictEqual(
+    parseHttpScript('T :1234')[0].method,
+    'TRACE',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('Trace :1234')[0].method,
+    'TRACE',
+  )
 }
 
 function testUrl() {
