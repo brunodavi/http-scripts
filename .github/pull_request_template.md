@@ -1,20 +1,13 @@
----
-name: Feature Request
-about: Suggest an idea for this project
-title: "[ FEAT ] "
-labels: enhancement
-assignees: ''
+### Description:
+Please provide a brief description of the changes made in this PR.
 
----
+### Related Issue:
+Link to the related issue (if applicable).
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex: I'm always frustrated when [...]
+### How Was It Tested?
+Explain the tests you performed to ensure the code works as expected.
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+### Checklist:
+- [ ] The code follows conventional commit guidelines.
+- [ ] Tests were added/updated.
+- [ ] Documentation was updated (if necessary).
