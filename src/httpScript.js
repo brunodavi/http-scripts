@@ -76,7 +76,7 @@ function addProtocol(url) {
 }
 
 function parseScript(script) {
-  const options = { ...REST_OPTIONS }
+  const options = { runJs: REST_OPTIONS.runJs }
 
   const regexMethod = /^([a-zA-Z]+) +(.*?)$/m
 
@@ -243,11 +243,28 @@ export default function httpScript(script, httpRequest = httpRequestDefault) {
   const parsedList = parseHttpScript(script)
 
   let state = {}
+  state.default = { ...REST_OPTIONS }
+
   let response = null
   let baseUrl = null
 
-  for (const parsed of parsedList) {
+  for (let parsed of parsedList) {
     parsed.state = state
+
+    parsed = {
+      ...parsed.state.default,
+      ...parsed,
+
+      queries: {
+        ...parsed.state.default.queries,
+        ...parsed.queries
+      },
+
+      headers: {
+        ...parsed.state.default.headers,
+        ...parsed.headers
+      },
+    }
 
     if (
       parsed.url.startsWith('http')
