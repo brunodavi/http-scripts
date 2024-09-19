@@ -83,6 +83,85 @@ function testMethods() {
     parseHttpScript('trace :1234')[0].method,
     'TRACE',
   )
+
+  assert.strictEqual(
+    parseHttpScript('G :1234')[0].method,
+    'GET',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('Get :1234')[0].method,
+    'GET',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('P :1234')[0].method,
+    'POST',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('Post :1234')[0].method,
+    'POST',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('U :1234')[0].method,
+    'PUT',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('Put :1234')[0].method,
+    'PUT',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('A :1234')[0].method,
+    'PATCH',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('Patch :1234')[0].method,
+    'PATCH',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('D :1234')[0].method,
+    'DELETE',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('Delete :1234')[0].method,
+    'DELETE',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('H :1234')[0].method,
+    'HEAD',
+  )
+  assert.strictEqual(
+    parseHttpScript('Head :1234')[0].method,
+    'HEAD',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('O :1234')[0].method,
+    'OPTIONS',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('Options :1234')[0].method,
+    'OPTIONS',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('T :1234')[0].method,
+    'TRACE',
+  )
+
+  assert.strictEqual(
+    parseHttpScript('Trace :1234')[0].method,
+    'TRACE',
+  )
 }
 
 function testUrl() {
