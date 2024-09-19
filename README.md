@@ -277,6 +277,35 @@ this.state.baseUrl = 'reqres.in/api';
 Get /users/2
 ```
 
+#### Default
+
+Default is a variable that defines the request defaults
+
+```
+Get httpbin.org/get
+
+.js
+// In Node.js:
+// const b64 = Buffer.from('user:demo').toString('base64')
+
+const b64 = btoa('user:demo')
+this.state.b64 = b64
+this.state.default.headers.authorization = `Basic ${b64}`
+.
+
+---
+
+Get /basic-auth/user/demo
+
+# Default Apply:
+# authorization: Basic $b64
+user-agent: HTTP Script
+```
+
+Thus adding both the user-agent header and
+the authorization header
+
+
 ### Contributing
 
 Hi there!
