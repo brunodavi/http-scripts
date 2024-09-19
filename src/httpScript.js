@@ -13,6 +13,7 @@ const REST_OPTIONS = {
 
   js: null,
 
+  // eslint-disable-next-line no-unused-vars
   runJs(response) {
     if (this.js) eval(this.js)
   }
@@ -42,7 +43,7 @@ function parseKeyValue(script, regex) {
   const json = {}
   const regexGroups = script.matchAll(regex)
 
-  for (const [_, key, value] of regexGroups)
+  for (const [, key, value] of regexGroups)
     json[key] = value
 
   return json
@@ -82,7 +83,7 @@ function parseScript(script) {
   if (!regexMethod.test(script))
     throw new Error('Method or URL not found')
 
-  const [_, method, url] = (
+  const [, method, url] = (
     script.match(regexMethod)
   )
 
@@ -106,7 +107,7 @@ function parseScript(script) {
       throw new Error("Invalid body (check if you forgot to close it with '.')")
     }
 
-    const [_b, body] = script.match(regexBody)
+    const [, body] = script.match(regexBody)
     options.body = body
 
     script = script.replace(regexBody, '')
@@ -119,7 +120,7 @@ function parseScript(script) {
       throw new Error("Invalid js (check if you forgot to close it with '.')")
     }
 
-    const [_j, js] = script.match(regexJs)
+    const [, js] = script.match(regexJs)
     script = script.replace(regexJs, '')
 
     options.js = js
@@ -161,7 +162,7 @@ function parseScript(script) {
       )
     }
 
-    const [_sd, sendedFile] = script.match(regexFileSend)
+    const [, sendedFile] = script.match(regexFileSend)
     options.fileToSend = sendedFile
   }
 
@@ -171,7 +172,7 @@ function parseScript(script) {
     if (!regexSaveFile.test(script))
       throw new Error('File to save not specified')
 
-    const [_sv, savedFile] = script.match(/^> (.+?)$/m)
+    const [, savedFile] = script.match(/^> (.+?)$/m)
     options.saveFile = savedFile
   }
 
