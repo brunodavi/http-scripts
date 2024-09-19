@@ -283,7 +283,9 @@ function testVariables() {
 function testState() {
   console.log('Testing State...')
 
-  const result = httpScript(
+  let result
+
+  result = httpScript(
     'g :1234'
     + '\n'
     + '\n'
@@ -303,11 +305,68 @@ function testState() {
   assert.strictEqual(result.state.name, "John Due")
 }
 
+function testDefault() {
+  let result
+
+  result = httpScript(
+    'g :1234'
+    + '\n'
+    + '\n'
+    + '\n.js'
+    + '\nthis.state.default.headers.Auth = "XXX"'
+    + '\n.'
+    + '\n---'
+    + '\ng :1234'
+  )
+
+  assert.strictEqual(
+    result.state.default.headers.Auth,
+    'XXX'
+  )
+
+  assert.strictEqual(
+    result.headers.Auth,
+    'XXX'
+  )
+
+  result = httpScript(
+    'g :1234'
+    + '\n'
+    + '\n'
+    + '\n.js'
+    + '\nthis.state.default.headers.Auth = "XXX"'
+    + '\n.'
+    + '\n---'
+    + '\ng :1234'
+    + '\nAuth: 123'
+    + '\n'
+  )
+
+  assert.strictEqual(result.headers.Auth, '123')
+
+  result = httpScript(
+    'g :1234'
+    + '\n'
+    + '\n'
+    + '\n.js'
+    + '\nthis.state.default.headers.Auth = "XXX"'
+    + '\n.'
+    + '\n---'
+    + '\ng :1234'
+    + '\nUser-Agent: HTTP Script'
+    + '\n'
+  )
+
+  assert.strictEqual(result.headers.Auth, 'XXX')
+  assert.strictEqual(result.headers['User-Agent'], 'HTTP Script')
+}
+
 
 export default function testHttpScript() {
   testAutoBaseUrl()
   testVariables()
   testState()
+  testDefault()
 
   console.log('Tests httpScript OK\n')
 }
