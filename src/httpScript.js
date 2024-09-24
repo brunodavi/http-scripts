@@ -239,11 +239,10 @@ function httpRequestDefault(options) {
   return options
 }
 
-export default function httpScript(script, httpRequest = httpRequestDefault) {
+export default function httpScript(script, httpRequest = httpRequestDefault, state = {}) {
   const parsedList = parseHttpScript(script)
 
-  let state = {}
-  state.default = { ...REST_OPTIONS }
+  let state = { state }
 
   let response = null
   let baseUrl = null
