@@ -1,4 +1,4 @@
-name: Testing
+name: Linter
 
 on:
   push:
@@ -19,4 +19,5 @@ jobs:
         node-version: '20'
         cache: 'npm'
 
-    - run: npm test
+    - run: npm i
+    - run: npm run lint
